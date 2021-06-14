@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Loading Screen</title>
+</head>
+<body>
+
+    <section class="banner">
+        <div class="container">
+            <div id = "scene">
+                <h2 id="text">
+                    <span data-depth="2">R</span>       <!-- Copy this lines or delete them and just put your letters inside and save it -->
+                    <span data-depth="-6">O</span>
+                    <span data-depth="5">L</span>
+                    <span data-depth="-3">E</span>
+                    <span data-depth="-3">P</span>
+                    <span data-depth="2">L</span>     
+                    <span data-depth="-6">A</span>
+                    <span data-depth="5">Y</span>
+                </h2>
+            </div>
+        </div>
+    </section>
+    <audio id='song' volume='0.2' autoplay controls>
+        <source src="music.mp3" type="audio/mpeg">
+      </audio>
+      <script>
+
+        var play = false;
+        var myAudio = document.getElementById("song");
+        
+        myAudio.volume = 0.2;
+    
+        function onKeyDown(event) {
+                switch (event.keyCode) {
+                    case 32: //SpaceBar                    
+                        if (play) {
+                            myAudio.pause();
+                            play = false;
+                        } else {
+                            myAudio.play();
+                            play = true;
+                        }
+                        break;
+                }
+          return false;
+        }
+    
+        window.addEventListener("keydown", onKeyDown, false);
+       
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script> 
+      var text = document.getElementById('text');
+      var scene = document.getElementById('scene');
+      var parallaxInstance = new Parallax(text);
+      var parallaxInstance = new Parallax(scene);
+    </script>
+</body>
+</html>
